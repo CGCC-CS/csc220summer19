@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-int main() {
+int main(void) {
   int c;
   int nl=0, caps=0, lowers=0, nums=0;
 
