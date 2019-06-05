@@ -1,4 +1,4 @@
 all: multifile
 
 multifile: multifile.c myfunctions.c
-	gcc multifile.c myfunctions.c -Wall -pedantic -ansi -o multifile
+	gcc --std=c11 -Wall -pedantic multifile.c myfunctions.c -o multifile

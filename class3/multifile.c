@@ -1,12 +1,17 @@
 #include<stdio.h>
 #include"myfunctions.h"
 
+/* To compile:
+ *    gcc --std=c11 -pedantic -Wall multifile.c myfunctions.c
+ */
 extern int myNum;
 
-int main() {
+int main(void) {
   int a=10, b=20;
+
   printf("SIZE=%d\n", SIZE);
   printf("MULTIPLE=%d\n", MULTIPLE);
+
   printf ("myNum = %d, a=%d\n", myNum, a);
   init();
   addone(a);
