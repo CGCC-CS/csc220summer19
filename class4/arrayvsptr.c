@@ -1,49 +1,52 @@
 #include<stdio.h>
- 
+
 #define COUNT 16
 
 void print_array(char ar[], int size) {
-  int ii;
-  for(ii=0;ii<size;ii++)
-    printf("%2d: ar[%2d]=%c\n", ii, ii, ar[ii]);
-  printf("Size of ar: %lu\n", sizeof(ar)); 
+  for(int ii=0; ii<size; ii++) {
+     printf("%2d: ar[%2d]=%c\n", ii, ii, ar[ii]);
+  }
+  printf("\t\t\tSize of ar: %lu\n\n", sizeof(ar));
 }
 
-void print_pointer(char * p, int size) {
-  int ii;
-  for(ii=0;ii<size;ii++)
-    printf("%2d: *(p+%2d)=%c\n", ii, ii, *(p+ii));
-  printf("Size of p: %lu\n", sizeof(p)); 
+void print_pointer(char * ptr, int size) {
+  for(int ii=0; ii<size; ii++) {
+     printf("%2d: *(ptr+%2d)=%c\n", ii, ii, *(ptr+ii));
+  }
+  printf("\t\t\tSize of ptr: %lu\n\n", sizeof(ptr));
 }
 
-int main() {
-  char array[] = "ABCDEFGHIJKLMNOP"; /* int array */
+
+int main(void) {
+  char array[] = "ABCDEFGHIJKLMNOP"; /* char array */
   int nums[COUNT];
-  char * ptr = "ABCDEFGHIJKLMNOP";   /* pointer to int */
+  char * ptr = "ZYXWVUTSRQPONMLK";   /* pointer to char */
   int ii;
    
   printf("Sizes: array: %lu,  ptr: %lu,  nums: %lu\n", sizeof(array), sizeof(ptr), sizeof(nums)); 
 
-  for(ii=0;ii<COUNT;ii++)
+  for(ii=0;ii<COUNT;ii++) {
     nums[ii]=ii;
-  for(ii=0;ii<COUNT;ii++)
-     printf("array[%2d]=%c *(ptr+%d)=%c, nums[%2d]=%2d\n", ii, array[ii], ii, *(ptr+ii), ii, nums[ii]);
+  }
+  for(ii=0;ii<COUNT;ii++) {
+    printf("array[%2d]=%c *(ptr+%2d)=%c, nums[%2d]=%2d\n", ii, array[ii], ii, *(ptr+ii), ii, nums[ii]);
+  }
 
   printf("\nprint_array(array, COUNT)\n");
   print_array(array, COUNT);
   printf("\nprint_array(ptr, COUNT)\n");
   print_array(ptr, COUNT);
-  printf("\nprint_array(&array[0], COUNT)\n");
-  print_array(&array[0], COUNT);
 
-  printf("\n\nprint_pointer(array, COUNT)\n");
+  printf("\nprint_pointer(array, COUNT)\n");
   print_pointer(array, COUNT);
   printf("\nprint_pointer(ptr, COUNT)\n");
   print_pointer(ptr, COUNT);
-  printf("\nprint_pointer(&array[0], COUNT)\n");
-  print_pointer(&array[0], COUNT); 
+  /* 
+  printf("\nprint_pointer(nums, COUNT)\n");
+  print_pointer(nums, COUNT);
+  */
 
-  /* array indexing */
+ /* array indexing */
   printf("\n\narray indexing:\n  ");
   for(ii=0;ii<5;ii++) {
     printf("%d ", array[ii]);
@@ -75,9 +78,16 @@ int main() {
   printf("  size of arr=%lu\n", sizeof(array));
   printf("  size of ptr=%lu\n", sizeof(ptr));
 
-  ptr=&ii;
-  /*
-  *   array=&ii;  Not allowed!
+  ptr=array;
+  /* pointer arithmetic */
+  printf("after ptr=array:\n  ");
+  for(ii=0;ii<5;ii++) {
+    printf("%d ", *(ptr+ii));
+  }
+  printf("\n");
+
+  /* 
+  array=ptr;    // Not allowed!
   */
 
   return 0;

@@ -1,4 +1,4 @@
-nclude<stdio.h>
+#include<stdio.h>
 #include<string.h>
 
 typedef int number;
@@ -17,7 +17,7 @@ union myUnion {
 
 void print_struct(myStruct *);
 
-int main () {
+int main (void) {
 
   number k = 10;
   boolean done = FALSE;

@@ -1,15 +1,15 @@
 #include<stdio.h>
 
-int main () {
+int main (void) {
   char s1[] = "Hello";
   char *p = "World";
   int ii; 
 
-  printf("s1[] and *P\n");
+  printf("s1[] and *p\n");
   printf("s1: %p %s\n", &s1, s1);
   printf("p: &p=%p, p=%p %s\n", &p, p, p);
 
-  printf("\ns1[0] and *P as characters\n");
+  printf("\ns1[0] and *p as characters\n");
   printf("s1: %p %c\n", &s1, s1[0]);
   printf("p: &p=%p, p=%p %c\n", &p, p, *p);
 
@@ -37,7 +37,6 @@ int main () {
     printf("*p = %c [%d] (%p)\n", *p, *p, &*p);
     p++;
   }
-
 
   return 0;
 }

@@ -6,24 +6,22 @@
 
 /* User defined type */
 
-typedef unsigned int number; 
-
-typedef struct mystruct {
+struct mystruct_t {
   char name[STRLEN];
   int num;
-} mystruct_t;
+};
 
 /* forward declarations */
-void print_structure(mystruct_t s);
-void print_struct(const mystruct_t * s);
-void init_structure(mystruct_t *, char *, int); /* no param names required */
+void print_structure(struct mystruct_t s);
+void print_struct(const struct mystruct_t * s);
+void init_structure(struct mystruct_t *, char *, int); /* no param names required */
 
 int main () {
-  mystruct_t struct1 = {"Alice", 10};  /* Initializing declaration */
-  mystruct_t * ptr = NULL;
+  struct mystruct_t struct1 = {"Alice", 10};  /* Initializing declaration */
+  struct mystruct_t * ptr = NULL;
 
   /* malloc allocates memory from the heap */
-  ptr = malloc(sizeof(mystruct_t));
+  ptr = malloc(sizeof(struct mystruct_t));
   strncpy(ptr->name, "Bob", STRLEN);
   ptr->num=10;
 
@@ -46,18 +44,18 @@ int main () {
   return 0;
 }
 /* struct is pass-by-address */
-void init_structure(mystruct_t *s, char * name, int num) {
+void init_structure(struct mystruct_t *s, char * name, int num) {
   strncpy(s->name, name, STRLEN);
   s->num=num;
 }
 
 /* struct parameter is pass-by-value */
-void print_structure(mystruct_t s) {
+void print_structure(struct mystruct_t s) {
   printf("name: %s, num=%d\n", s.name, s.num);
 }
 
 /* Better print_structure */
-void print_struct(const mystruct_t * s) {
+void print_struct(const struct mystruct_t * s) {
   printf("name: %s, num=%d\n", s->name, s->num);
   /* s->num=55; NOT ALLOWED */
 }
