@@ -9,7 +9,9 @@
 
 #define LEN 10
 
-int main () {
+void myfun (char str[]);
+
+int main(void) {
     char str1[LEN] = "Hello";
     char str2[LEN] = "World";
     char * ptr1 = (char *) malloc(LEN);
@@ -24,10 +26,15 @@ int main () {
     strncpy(ptr2, "Summer '17 THIS GETS TRUNCATED", LEN); 
 
     printf("Initial Strings: \n");
-    printf("  str1 : %s, length=%d\n", str1, strlen(str1));
-    printf("  str2 : %s, length=%d\n", str2, strlen(str2));
-    printf("  ptr1 : %s, length=%d\n", ptr1, strlen(ptr1));
-    printf("  ptr2 : %s, length=%d\n", ptr2, strlen(ptr2));
+    printf("  str1 : sizeof(%s) = %lu\n", str1, sizeof(str1));
+    printf("  str1 : strlen(%s) = %lu\n", str1, strlen(str1));
+    printf("  str1 : sizeof(%s) = %lu\n", str2, sizeof(str2));
+    printf("  str1 : strlen(%s) = %lu\n", str2, strlen(str2));
+    printf("Passing string to a function:\n");
+    printf("  str1:\n");
+    myfun(str1);
+    printf("  str2:\n");
+    myfun(str2);
 
     /* Try Each of these and see which works.  (Print the output for any that
      * allow assignment to be done.  Note that changing ptr1 will mean we
@@ -95,3 +102,14 @@ int main () {
     free(ptr2);
     return 0;
 }
+
+void myfun (char str[]) {
+  char str2[] = "1234567890";
+
+  printf("    myfun: sizeof(%s) = %lu\n", str, sizeof(str));
+  printf("    myfun: strlen(%s) = %lu\n", str, strlen(str));
+  printf("    myfun: sizeof(%s) = %lu\n", str2, sizeof(str2));
+  printf("    myfun: strlen(%s) = %lu\n", str2, strlen(str2));
+}
+
+

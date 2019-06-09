@@ -10,7 +10,7 @@ struct my_struct {
   char * b;
 };
 
-int main() {
+int main(void) {
   char *ptr;
   char fence[] = "XXXXXXXXXXXXXXXXXXX";
   int *nums;

@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<string.h>
 
-int main() {
+int main(void) {
   char c;
   char outStr[100];
   int ii;

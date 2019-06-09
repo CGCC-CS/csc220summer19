@@ -5,7 +5,7 @@
 #include<ctype.h>
 #include<string.h>
 
-int main() {
+int main(void) {
     int ii;
     char * str = "Hello, TK-421!";
 

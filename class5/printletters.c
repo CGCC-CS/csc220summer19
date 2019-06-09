@@ -3,7 +3,7 @@
 
 #define LEN 8
 
-int main () {
+int main(void) {
   int num, ii;
   char buffer[LEN]; 
   char c;

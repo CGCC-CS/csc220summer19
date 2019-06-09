@@ -25,7 +25,7 @@ int add_ascii(char * ptr) {
   return sum;
 }
 
-int main() {
+int main(void) {
   FILE *infile, *outfile;   /* File pointers */
   FILE *fileptr;
   char inputbuffer[SIZE];

@@ -13,7 +13,7 @@
 #define E 2.718282
 #define PI 3.141593
 
-int main () {
+int main(void) {
 
     double a = 64.0;
     double b, c;
