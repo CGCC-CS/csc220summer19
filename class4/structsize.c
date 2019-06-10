@@ -32,21 +32,21 @@ struct loosestruct{
 struct bitf {
     int a : 10;  /* 10 bit int */
     int b : 5;   /* 5 bit int */
-    int c : 1;   /* 1 bit int */
+    unsigned int c : 1;   /* 1 bit int - needs to be unsigned! */
     int d : 8;   /* 8 bit int */
     int e : 4;   /* 4 bit int */
     int f : 4;   /* 4 bit int */
 };
 
-int main() {
+int main(void) {
     struct tightstruct tstruct = {0,1,2,'A','B','C','D'};
     struct loosestruct lstruct = {'A',0,'B',1,'C',2,'D'};
 
     struct bitf bitfield = {7, 2, 1, 7, 2, 3};
 
-    printf ("Size of tightstruct = %d\n", sizeof(struct tightstruct));
-    printf ("Size of loosestruct = %d\n", sizeof(struct loosestruct));
-    printf ("Size of bitfield = %d\n", sizeof(struct bitf));
+    printf ("Size of tightstruct = %lu\n", sizeof(struct tightstruct));
+    printf ("Size of loosestruct = %lu\n", sizeof(struct loosestruct));
+    printf ("Size of bitfield = %lu\n", sizeof(struct bitf));
 
     return 0;
 }

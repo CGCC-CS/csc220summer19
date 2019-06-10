@@ -1,7 +1,7 @@
 
-**pointers.c ** has an example of a pointer and some pointer arithmetic.
+**pointers.c** has an example of a pointer and some pointer arithmetic.
 
-**stringpointers.c ** demonstrates how strings can be stored in an array or referenced with a pointer.
+**stringpointers.c** demonstrates how strings can be stored in an array or referenced with a pointer.
 
 **arrayvsptr.c** has examples of arrays and pointers and shows where they are similar (syntax) and where they are different (memory allocation).
 

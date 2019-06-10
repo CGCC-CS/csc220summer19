@@ -7,12 +7,14 @@
 
 #include<stdio.h>
 
-int main() {
+int main(void) {
 
 #ifndef MORNING
   printf("Hello, world!\n");
 #else
   printf("Good morning, world!\n");
 #endif
+
+  return 0;
 }
 

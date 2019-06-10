@@ -6,17 +6,17 @@ int main (void) {
   int ii; 
 
   printf("s1[] and *p\n");
-  printf("s1: %p %s\n", &s1, s1);
-  printf("p: &p=%p, p=%p %s\n", &p, p, p);
+  printf("s1: %p %s\n", (void *) &s1, s1);
+  printf("p: &p=%p, p=%p %s\n", (void *) &p, p, p);
 
   printf("\ns1[0] and *p as characters\n");
-  printf("s1: %p %c\n", &s1, s1[0]);
-  printf("p: &p=%p, p=%p %c\n", &p, p, *p);
+  printf("s1: %p %c\n", (void *) &s1, s1[0]);
+  printf("p: &p=%p, p=%p %c\n", (void *) &p, p, *p);
 
   printf("\nAfter p++\n");
   p++;
-  printf("s1: %p %s\n", &s1, s1);
-  printf("p: &p=%p, p=%p %s\n", &p, p, p);
+  printf("s1: %p %s\n", (void *) &s1, s1);
+  printf("p: &p=%p, p=%p %s\n", (void *) &p, p, p);
 
   printf("\nS1 Character by character\n");
   for(ii=0;ii<6;ii++) {

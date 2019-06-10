@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-int main() {
+
+int main(void) {
 	int ii;
 	int s1size=0, s2size=0;
 

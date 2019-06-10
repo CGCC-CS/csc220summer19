@@ -9,9 +9,9 @@ union my_union {
 int main (void) {
   union my_union u;
 
-  printf ("sizeof(u)=%d\n", sizeof(u));
+  printf ("sizeof(u)=%lu\n", sizeof(u));
   strncpy(u.s, "Hello!", 12);
-  printf ("After assignment: sizeof(u)=%d, strlen(u.s)=%d\n", sizeof(u), strlen(u.s));
+  printf ("After assignment: sizeof(u)=%lu, strlen(u.s)=%lu\n", sizeof(u), strlen(u.s));
   printf ("u.s = %s\n", u.s);
   u.x = 30;
   printf ("u.x = %d\n", u.x);

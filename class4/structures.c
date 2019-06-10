@@ -16,7 +16,7 @@ void print_structure(struct mystruct_t s);
 void print_struct(const struct mystruct_t * s);
 void init_structure(struct mystruct_t *, char *, int); /* no param names required */
 
-int main () {
+int main (void) {
   struct mystruct_t struct1 = {"Alice", 10};  /* Initializing declaration */
   struct mystruct_t * ptr = NULL;
 

@@ -15,7 +15,7 @@ union myUnion {
   char s[20];
 };
 
-void print_struct(myStruct *);
+void print_struct(const myStruct *);
 
 int main (void) {
 
@@ -27,9 +27,9 @@ int main (void) {
 
   printf("k=%d, done=%d, x=%d\n", k, done,x);
   print_struct(&m);
-  printf("sizeof(myStruct) = %d\n", sizeof(myStruct));
+  printf("sizeof(myStruct) = %lu\n", sizeof(myStruct));
 
-  printf("sizeof(myUnion) = %d\n", sizeof(union myUnion));
+  printf("sizeof(myUnion) = %lu\n", sizeof(union myUnion));
   strncpy(u.s, "Hello, World!", 20);
   printf("u.s=%s\n", u.s);
   u.x = 0x4D6F6F6E;   /* Ascii value for M-o-o-n */
@@ -39,7 +39,7 @@ int main (void) {
   return 0;
 }
 
-void print_struct(myStruct * m) {
+void print_struct(const myStruct * m) {
   printf("m.n=%d, m.s=%s, m.finished=%d\n", 
              m->n, m->s, m->finished);
 }
