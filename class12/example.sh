@@ -2,23 +2,24 @@
 
 # Parameter 1 is a name, parameter 2 is a number
 
-# use -e to use \ characters
-echo "Example\tshell\tscript"
-echo -e "Example\tshell\tscript"
+echo "Example\t\tshell\t\tscript"
+echo -e "Example\t\tshell\t\tscript"
 
-#run a command
-echo "Your files:"
+# run command
+echo
+echo "Your files: "
 ls
+
+# run a command inside a string
+echo "Date: `date`"
 
 # run a different shell script
 ./hello.sh $1
 
-ii=1
 
-while [ $ii -le $2 ]
+ii=1
+while [ $ii -le $2 ] 
 do
   echo $ii
   ii=$((ii+1))
 done
-
-echo "Good night!"
