@@ -2,49 +2,46 @@
 #include<thread>
 #include<mutex>
 
-// compile with:
-//  g++ threads.cpp --std=c++11 -pedantic -Wall -pthread
+// To compile:
+//   g++ threads.cpp --std=c++11 -pedantic -Wall -pthread
 
-std::mutex m;
+using namespace std;
 
-// This funtion counts to 10 with 1 second delay between numbers
-//   The tabs argument lets us differentiate between different
-//   threads visually.  
+mutex m;
+int num = 0;
+
+// This function counts to 10 with 1 second delay between numbers.
+//   The tabs argument lets us differentiate between different 
+//   threads visually.
 void count_to_ten(int tabs) {
-
-    for(int jj=0;jj<10;jj++) {
-        // The next line locks the output stream so the threads don't
-        //    write over each other.  Try commenting it out to see
-        //    what happens.
-        std::unique_lock<std::mutex> lock(m);
-        for(int ii=0;ii<tabs;ii++) {
-            std::cout << "\t";
-        }
-        std::cout << jj << std::endl;
-
-	// Free the mutex
-        lock.unlock();
-        // Wait a second
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  for (int jj=0;jj<10;++jj) {
+    //  The next line locks the output stream so the threads don't
+    //    write over each other. Try commenting it out to see what
+    //    happens.
+    unique_lock<mutex> output_mutex(m);
+    for (int ii=0;ii<tabs;++ii) {
+      cout << "\t";
     }
+    cout << jj << "(" << ++num << ")" << endl;
+    // Free the mutex
+    output_mutex.unlock();
+
+    // wait a second
+    this_thread::sleep_for(chrono::milliseconds(1000));
+  }
 }
 
 int main() {
-    int ii;
-    const int numThreads = 6;
-    std::thread t[numThreads];
+  const int numThreads = 6;
+  thread t[numThreads];
 
-    // This loop calls count_to_ten multiple times
-    //   Try changing the body to count_to_ten(ii) to see what it looks
-    //   like to not run multi-threaded.  (you will also need to comment
-    //   out the join for loop.
-    for(ii=0;ii<numThreads;ii++) {
-        t[ii] = std::thread(count_to_ten, ii);
-    }
+  for(int ii=0;ii<numThreads;++ii) {
+    t[ii] = thread(count_to_ten,ii);
+  }
 
-    // Wait for each thread to return
-    for(ii=0;ii<numThreads;ii++) {
-        t[ii].join();
-    }
-    return 0;
+  for(int jj=0;jj<numThreads;++jj) {
+    t[jj].join();
+  }
+
+  return 0;
 }
